@@ -1,23 +1,24 @@
 import React from "react";
-import transactions from "../assets/no-transactions.png";
+import { Typography, Box, Paper } from "@mui/material";
+import transactions from "../assets/no-transaction.png";
 
 function NoTransactions() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        flexDirection: "column",
-        marginBottom: "2rem",
-      }}
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      width="100%"
+      marginBottom="2rem"
     >
-      <img src={transactions} style={{ width: "400px", margin: "4rem" }} />
-      <p style={{ textAlign: "center", fontSize: "1.2rem" }}>
-        You Have No Transactions Currently
-      </p>
-    </div>
+      <Paper elevation={0} style={{ padding: "2rem" }}>
+        <img src={transactions} alt="No Transactions" style={{ width: "400px", marginBottom: "1rem" }} />
+        <Typography variant="body1" align="center">
+          Currently, You Have No Transactions!
+        </Typography>
+      </Paper>
+    </Box>
   );
 }
 

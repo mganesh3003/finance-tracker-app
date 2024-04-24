@@ -1,51 +1,51 @@
-import React, { useState } from 'react';
-import { TextField, Button, styled, Typography } from '@mui/material';
-import usersData from '../../../public/users.json';
-import logoImage from '../../assets/expense-tracker-logo.png';
+import React, { useState } from "react";
+import { TextField, Button, styled, Typography } from "@mui/material";
+import usersData from "../../../public/users.json";
+import logoImage from "../../assets/expense-tracker-logo.png";
 
-const StyledContainer = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  minHeight: '90vh',
-  padding: '20px',
-  backgroundColor: '#FFFFFF',
+const StyledContainer = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: "90vh",
+  padding: "20px",
+  backgroundColor: "#FFFFFF",
 });
 
-const StyledForm = styled('form')({
-  width: '100%',
-  maxWidth: '300px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+const StyledForm = styled("form")({
+  width: "100%",
+  maxWidth: "300px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 });
 
 const StyledTextField = styled(TextField)({
-  marginBottom: '10px',
-  width: '100%',
+  marginBottom: "10px",
+  width: "100%",
 });
 
 const StyledButton = styled(Button)({
-  width: '100%',
-  marginBottom: '10px',
+  width: "100%",
+  marginBottom: "10px",
 });
 
-const ErrorMessage = styled('div')({
-  color: '#FF0000',
-  marginBottom: '10px',
+const ErrorMessage = styled("div")({
+  color: "#FF0000",
+  marginBottom: "10px",
 });
 
-const StyledImage = styled('img')({
-  width: '100px',
-  height: 'auto',
-  borderRadius: '50%',
+const StyledImage = styled("img")({
+  width: "100px",
+  height: "auto",
+  borderRadius: "50%",
 });
 
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const Login = ({ onLogin }) => {
     if (user) {
       onLogin(username);
     } else {
-      setError('Invalid username or password.');
+      setError("Invalid username or password.");
     }
   };
 
