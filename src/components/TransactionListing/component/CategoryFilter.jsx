@@ -1,6 +1,6 @@
-import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const CategoryFilter = ({ filterCategory, setFilterCategory }) => {
   const categories = useSelector((state) => state.transactions.categories);
@@ -20,7 +20,9 @@ const CategoryFilter = ({ filterCategory, setFilterCategory }) => {
       >
         <MenuItem value="all">All Categories</MenuItem>
         {categories.map((category) => (
-          <MenuItem key={category} value={category}>{category}</MenuItem>
+          <MenuItem key={category} value={category}>
+            {category}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>

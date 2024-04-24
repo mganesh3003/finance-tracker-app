@@ -1,6 +1,5 @@
-// components/TransactionFilter.jsx
-import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import React from "react";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 const TypeFilter = ({ filterType, setFilterType }) => {
   const handleFilterChange = (event) => {

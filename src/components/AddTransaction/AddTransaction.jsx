@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Button, Box } from '@mui/material';
-import AddTransactionForm from './component/AddTransactionForm';
+import React, { useState } from "react";
+import { Button, Box } from "@mui/material";
+import AddTransactionForm from "./component/AddTransactionForm";
 
 const TransactionPage = () => {
   const [openAddTransaction, setOpenAddTransaction] = useState(false);
@@ -15,10 +15,17 @@ const TransactionPage = () => {
 
   return (
     <Box marginBottom={4.5}>
-      <Button variant="contained" color="primary" onClick={handleOpenAddTransaction}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleOpenAddTransaction}
+      >
         Add Transaction
       </Button>
-      <AddTransactionForm open={openAddTransaction} onClose={handleCloseAddTransaction} />
+      <AddTransactionForm
+        open={openAddTransaction}
+        onClose={handleCloseAddTransaction}
+      />
     </Box>
   );
 };
