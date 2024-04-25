@@ -12,7 +12,10 @@
   font-style: normal;
 }
 
+* {
+	font-family: "Montserrat" !important;
+}
+
 body {
-	font-family: "Montserrat";
   background-color: #fcfcfc;
 }

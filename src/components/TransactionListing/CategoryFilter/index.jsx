@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   FormControl,
   InputLabel,
@@ -7,6 +7,7 @@ import {
   MenuItem,
   styled,
 } from "@mui/material";
+import { setFilterCategory } from "../../../features/transactionSlice";
 
 const StyledFormControl = styled(FormControl)({
   margin: "8px",
@@ -21,11 +22,12 @@ const StyledMenuItem = styled(MenuItem)({
   fontSize: "14px",
 });
 
-const CategoryFilter = ({ filterCategory, setFilterCategory }) => {
+const CategoryFilter = ({ filterCategory }) => {
   const categories = useSelector((state) => state.transactions.categories);
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setFilterCategory(event.target.value);
+    dispatch(setFilterCategory(event.target.value));
   };
 
   return (

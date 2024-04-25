@@ -5,35 +5,37 @@ The Finance Tracker App is a web application designed to help users manage their
 
 ## Project Setup
 
-1. **Clone the Repository**:
+1. **Prerequisite**: To run this project, ensure you have Node.js version 18+ or higher installed.
+
+2. **Clone the Repository**:
    Clone the project repository to your local machine using Git.
 
    ```bash
    git clone https://github.com/mganesh3003/finance-tracker-app
    ```
 
-2. **Install Dependencies**: Navigate to the project directory and install the necessary dependencies using npm or yarn.
+3. **Install Dependencies**: Navigate to the project directory and install the necessary dependencies using npm or yarn.
 
- ```bash
-  cd finance-tracker-app
-  npm install
-  # or
-  yarn install
+   ```bash
+   cd finance-tracker-app
+   npm install
+   # or
+   yarn install
 
   ```
-3. **Run the Development Server**:
+  
+4. **Run the Development Server**:
    Start the development server to run the app locally.
 
    ```bash
    npm run dev
    ```
    
-2. **Access the App**: Navigate to the project directory and install the necessary dependencies using npm or yarn.
+5. **Access the App**: Navigate to the project directory and install the necessary dependencies using npm or yarn.
 
- ```bash
-  Open your browser and go to http://localhost:3000 to access the Finance Tracker app.
-  ```
-
+   ```bash
+   Open your browser and go to http://localhost:3000 to access the Finance Tracker app.
+   ```
 
 ## Features
 

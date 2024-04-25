@@ -10,28 +10,38 @@ import {
   Typography,
   TablePagination,
   IconButton,
-  Box,
+  Stack,
   Button,
   ButtonGroup,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import TypeFilter from "./component/TypeFilter";
-import CategoryFilter from "./component/CategoryFilter";
-import AddTransactionForm from "../AddTransaction/component/AddTransactionForm";
-import { deleteTransaction } from "../../features/transactionSlice";
+import TypeFilter from "./TypeFilter";
+import CategoryFilter from "./CategoryFilter";
+import AddTransactionForm from "../AddTransaction/AddTransactionForm";
+import { deleteTransaction, setsortType } from "../../features/transactionSlice";
 
 const TransactionTable = () => {
   const dispatch = useDispatch();
   const transactions = useSelector((state) => state.transactions.transactions);
+  const filterCategory = useSelector(
+    (state) => state.transactions.categoryType
+  );
+  const filterType = useSelector(
+    (state) => state.transactions.filterType
+  );
+  const sortType = useSelector(
+    (state) => state.transactions.sortType
+  );
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [filterType, setFilterType] = useState("all");
-  const [filterCategory, setFilterCategory] = useState("all");
+  // const [filterType, setFilterType] = useState("all");
+  // const [filterCategory, setFilterCategory] = useState(reduxFilterCategory);
   const [openEditForm, setOpenEditForm] = useState(false);
   const [transactionToEdit, setTransactionToEdit] = useState(null);
-  const [sortOption, setSortOption] = useState("none");
+  // const [sortOption, setSortOption] = useState("none");
 
   const handleEditClick = (transaction) => {
     setTransactionToEdit(transaction);
@@ -42,7 +52,7 @@ const TransactionTable = () => {
     dispatch(deleteTransaction(transactionId));
   };
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (newPage) => {
     setPage(newPage);
   };
 
@@ -52,13 +62,13 @@ const TransactionTable = () => {
   };
 
   const handleSort = (option) => {
-    setSortOption(option);
+    dispatch(setsortType(option));
   };
 
   const sortedTransactions = () => {
-    if (sortOption === "date") {
+    if (sortType === "date") {
       return transactions.slice().sort((a, b) => a.date.localeCompare(b.date));
-    } else if (sortOption === "amount") {
+    } else if (sortType === "amount") {
       return transactions.slice().sort((a, b) => a.amount - b.amount);
     }
     return transactions;
@@ -89,11 +99,12 @@ const TransactionTable = () => {
       <Typography variant="h6" gutterBottom>
         All Transactions
       </Typography>
-      <Box
-        display="flex"
+      <Stack
+        direction="row"
         justifyContent="space-between"
         alignItems="center"
-        marginBottom={2}
+        spacing={2}
+        mb={4}
       >
         <ButtonGroup
           variant="outlined"
@@ -102,7 +113,7 @@ const TransactionTable = () => {
         >
           <Button
             onClick={() => handleSort("none")}
-            variant={sortOption === "none" ? "contained" : "outlined"}
+            variant={sortType === "none" ? "contained" : "outlined"}
             style={{
               fontSize: "12px",
               padding: "4px 8px",
@@ -113,7 +124,7 @@ const TransactionTable = () => {
           </Button>
           <Button
             onClick={() => handleSort("date")}
-            variant={sortOption === "date" ? "contained" : "outlined"}
+            variant={sortType === "date" ? "contained" : "outlined"}
             style={{
               fontSize: "12px",
               padding: "4px 8px",
@@ -124,7 +135,7 @@ const TransactionTable = () => {
           </Button>
           <Button
             onClick={() => handleSort("amount")}
-            variant={sortOption === "amount" ? "contained" : "outlined"}
+            variant={sortType === "amount" ? "contained" : "outlined"}
             style={{
               fontSize: "12px",
               padding: "4px 8px",
@@ -134,12 +145,18 @@ const TransactionTable = () => {
             Sort by Amount
           </Button>
         </ButtonGroup>
-        <TypeFilter filterType={filterType} setFilterType={setFilterType} />
-        <CategoryFilter
-          filterCategory={filterCategory}
-          setFilterCategory={setFilterCategory}
-        />
-      </Box>
+        <Stack
+          direction="row"
+          justifyContent="end"
+          alignItems="center"
+          spacing={2}
+        >
+          <TypeFilter filterType={filterType} />
+          <CategoryFilter
+            filterCategory={filterCategory}
+          />
+        </Stack>
+      </Stack>
       <TableContainer component={Paper} elevation={3}>
         <Table>
           <TableHead>
@@ -152,7 +169,8 @@ const TransactionTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {slicedTransactions.map((transaction) => (
+            {slicedTransactions.length > 0 ? (
+            slicedTransactions.map((transaction) => (
               <TableRow key={transaction.id}>
                 <TableCell>₹{transaction.amount}</TableCell>
                 <TableCell>{transaction.type}</TableCell>
@@ -163,17 +181,21 @@ const TransactionTable = () => {
                     onClick={() => handleEditClick(transaction)}
                     aria-label="edit"
                   >
-                    <EditIcon color="primary" />
+                    <EditIcon sx={{ color: "grey" }} />
                   </IconButton>
                   <IconButton
                     onClick={() => handleDeleteClick(transaction.id)}
                     aria-label="delete"
                   >
-                    <DeleteIcon color="error" />
+                    <DeleteIcon sx={{ color: "grey" }} />
                   </IconButton>
                 </TableCell>
               </TableRow>
-            ))}
+            ))) : (
+              <TableRow>
+                <TableCell colSpan={5}>No transactions to display</TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

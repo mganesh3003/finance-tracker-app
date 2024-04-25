@@ -1,6 +1,8 @@
 import React from "react";
-import { Typography, Button, styled } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { Typography, Button, styled, useTheme } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { handleLoggedOut } from "../../features/authSlice";
 
 const StyledHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -11,23 +13,27 @@ const StyledHeader = styled("div")(({ theme }) => ({
   marginBottom: "20px",
 }));
 
-const Header = ({ loggedInUser, onLogout }) => {
+const Header = () => {
+  const user = useSelector((state) => state.login.loggedInUser);
+  const dispatch = useDispatch();
+  const theme = useTheme();
+
   return (
     <StyledHeader>
-      {!loggedInUser ? (
-        <Typography variant="h6" sx={{ color: "#FFF" }}>
+      {!user.username ? (
+        <Typography variant="h6" sx={{ color: theme.palette.primary.white }}>
           Finance App
         </Typography>
       ) : (
         <>
-          <Typography variant="h6" sx={{ color: "#FFF" }}>
-            Welcome, {loggedInUser}!
+          <Typography variant="h6" sx={{ color: theme.palette.primary.white }}>
+            Welcome, {user.username}!
           </Typography>
           <Button
             variant="contained"
             color="secondary"
             startIcon={<ExitToAppIcon />}
-            onClick={onLogout}
+            onClick={() => dispatch(handleLoggedOut())}
           >
             Logout
           </Button>

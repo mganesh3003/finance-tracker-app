@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import InfoPaper from "./component/InfoPaper";
+import InfoPaper from "./InfoPaper";
 
 const AmountBoxes = () => {
   const { totalIncome, totalExpense, balance } = useSelector(
