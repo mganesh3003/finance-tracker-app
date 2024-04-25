@@ -11,6 +11,7 @@ function NoTransactions() {
       flexDirection="column"
       width="100%"
       marginBottom="2rem"
+      backgroundColor="#fcfcfc"
     >
       <Paper elevation={0} style={{ padding: "2rem" }}>
         <img src={transactions} alt="No Transactions" style={{ width: "400px", marginBottom: "1rem" }} />

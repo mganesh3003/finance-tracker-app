@@ -11,7 +11,6 @@ import {
 const StyledFormControl = styled(FormControl)({
   margin: "8px",
   minWidth: "150px",
-  height: "auto",
 });
 
 const StyledInputLabel = styled(InputLabel)({

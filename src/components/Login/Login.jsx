@@ -10,7 +10,7 @@ const StyledContainer = styled("div")({
   justifyContent: "center",
   minHeight: "90vh",
   padding: "20px",
-  backgroundColor: "#FFFFFF",
+  backgroundColor: "#fcfcfc",
 });
 
 const StyledForm = styled("form")({

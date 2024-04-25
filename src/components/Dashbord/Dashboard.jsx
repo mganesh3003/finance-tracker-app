@@ -13,15 +13,15 @@ export default function Dashboard() {
     <>
       {transactions.length ? (
         <>
-        <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <AddTranaction />
-          <AmountBoxes />
-        </Grid>
-        <Grid item xs={9}>
-          <TransactionListing />
-        </Grid>
-      </Grid>
+          <Grid container spacing={3}>
+            <Grid item xs={3}>
+              <AddTranaction />
+              <AmountBoxes />
+            </Grid>
+            <Grid item xs={9}>
+              <TransactionListing />
+            </Grid>
+          </Grid>
         </>
       ) : (
         <>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Typography, Button, styled } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
