@@ -1,0 +1,145 @@
+{
+  "hash": "87309568",
+  "configHash": "932cb201",
+  "lockfileHash": "6c275eea",
+  "browserHash": "05525868",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "77bada8f",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "3be5ba08",
+      "needsInterop": true
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "41179038",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "63f74d1b",
+      "needsInterop": false
+    },
+    "@mui/material/styles": {
+      "src": "../../node_modules/@mui/material/styles/index.js",
+      "file": "@mui_material_styles.js",
+      "fileHash": "81be7233",
+      "needsInterop": false
+    },
+    "@mui/material/CssBaseline": {
+      "src": "../../node_modules/@mui/material/CssBaseline/index.js",
+      "file": "@mui_material_CssBaseline.js",
+      "fileHash": "a0246d36",
+      "needsInterop": false
+    },
+    "redux-persist/integration/react": {
+      "src": "../../node_modules/redux-persist/es/integration/react.js",
+      "file": "redux-persist_integration_react.js",
+      "fileHash": "16e4ab8e",
+      "needsInterop": false
+    },
+    "@redux-devtools/extension": {
+      "src": "../../node_modules/@redux-devtools/extension/lib/esm/index.js",
+      "file": "@redux-devtools_extension.js",
+      "fileHash": "0cb9339c",
+      "needsInterop": false
+    },
+    "redux": {
+      "src": "../../node_modules/redux/dist/redux.mjs",
+      "file": "redux.js",
+      "fileHash": "f9a03a70",
+      "needsInterop": false
+    },
+    "redux-persist": {
+      "src": "../../node_modules/redux-persist/es/index.js",
+      "file": "redux-persist.js",
+      "fileHash": "5cba075e",
+      "needsInterop": false
+    },
+    "redux-persist/lib/storage": {
+      "src": "../../node_modules/redux-persist/lib/storage/index.js",
+      "file": "redux-persist_lib_storage.js",
+      "fileHash": "294a3bf5",
+      "needsInterop": true
+    },
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "6e178d8f",
+      "needsInterop": false
+    },
+    "@mui/material": {
+      "src": "../../node_modules/@mui/material/index.js",
+      "file": "@mui_material.js",
+      "fileHash": "83701316",
+      "needsInterop": false
+    },
+    "@mui/icons-material/ExitToApp": {
+      "src": "../../node_modules/@mui/icons-material/ExitToApp.js",
+      "file": "@mui_icons-material_ExitToApp.js",
+      "fileHash": "dd40bfe3",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Edit": {
+      "src": "../../node_modules/@mui/icons-material/Edit.js",
+      "file": "@mui_icons-material_Edit.js",
+      "fileHash": "59db45c0",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Delete": {
+      "src": "../../node_modules/@mui/icons-material/Delete.js",
+      "file": "@mui_icons-material_Delete.js",
+      "fileHash": "9cfd811b",
+      "needsInterop": true
+    },
+    "@mui/icons-material/CurrencyRupee": {
+      "src": "../../node_modules/@mui/icons-material/CurrencyRupee.js",
+      "file": "@mui_icons-material_CurrencyRupee.js",
+      "fileHash": "6ac76283",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-DV5CIYG3": {
+      "file": "chunk-DV5CIYG3.js"
+    },
+    "chunk-JDYXTICY": {
+      "file": "chunk-JDYXTICY.js"
+    },
+    "chunk-4ZSTBHIF": {
+      "file": "chunk-4ZSTBHIF.js"
+    },
+    "chunk-S5F6W7CR": {
+      "file": "chunk-S5F6W7CR.js"
+    },
+    "chunk-6MEZSMPS": {
+      "file": "chunk-6MEZSMPS.js"
+    },
+    "chunk-2RWLQM57": {
+      "file": "chunk-2RWLQM57.js"
+    },
+    "chunk-UASEUX4R": {
+      "file": "chunk-UASEUX4R.js"
+    },
+    "chunk-LVRGTV4Z": {
+      "file": "chunk-LVRGTV4Z.js"
+    },
+    "chunk-HAZNF34R": {
+      "file": "chunk-HAZNF34R.js"
+    },
+    "chunk-65JG2JFT": {
+      "file": "chunk-65JG2JFT.js"
+    },
+    "chunk-WXXH56N5": {
+      "file": "chunk-WXXH56N5.js"
+    }
+  }
+}
