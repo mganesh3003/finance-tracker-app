@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { useSelector } from "react-redux";
-import AddTranaction from "../AddTransaction/AddTransaction";
-import TransactionListing from "../TransactionListing/TransactionListing";
-import AmountBoxes from "../AmountBoxes/AmountBoxes";
-import NoTransactions from "../NoTransaction/NoTransaction";
+import AddTranaction from "../components/AddTransaction";
+import TransactionListing from "../components/TransactionListing";
+import AmountBoxes from "../components/AmountBoxes";
+import NoTransactions from "../components/NoTransaction";
 
 export default function Dashboard() {
   const transactions = useSelector((state) => state.transactions.transactions);

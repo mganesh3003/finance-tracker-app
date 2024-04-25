@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Box } from "@mui/material";
-import AddTransactionForm from "./component/AddTransactionForm";
+import AddTransactionForm from "./AddTransactionForm";
 
 const TransactionPage = () => {
   const [openAddTransaction, setOpenAddTransaction] = useState(false);

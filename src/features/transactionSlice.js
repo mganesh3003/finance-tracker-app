@@ -6,6 +6,9 @@ const initialState = {
   totalIncome: 0,
   totalExpense: 0,
   balance: 0,
+  filterType : 'all',
+  categoryType : 'all',
+  sortType : 'none',
 };
 
 export const transactionSlice = createSlice({
@@ -72,6 +75,15 @@ export const transactionSlice = createSlice({
     addCategory: (state, action) => {
       state.categories.push(action.payload);
     },
+    setFilterType: (state, action) => {
+      state.filterType = action.payload;
+    },
+    setFilterCategory: (state, action) => {
+      state.categoryType = action.payload;
+    },
+    setsortType : (state, action) => {
+      state.sortType = action.payload;
+    },
   },
 });
 
@@ -80,5 +92,8 @@ export const {
   updateTransaction,
   deleteTransaction,
   addCategory,
+  setFilterType,
+  setFilterCategory,
+  setsortType,
 } = transactionSlice.actions;
 export default transactionSlice.reducer;

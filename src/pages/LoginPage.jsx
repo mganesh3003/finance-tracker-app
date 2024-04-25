@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button, styled, Typography } from "@mui/material";
-import usersData from "../../../public/users.json";
-import logoImage from "../../assets/expense-tracker-logo.png";
+import usersData from "../../public/users.json";
+import { useDispatch } from "react-redux";
+import logoImage from "../assets/expense-tracker-logo.png";
+import { handleLoggedIn } from "../features/authSlice"; 
 
 const StyledContainer = styled("div")({
   display: "flex",
@@ -42,19 +44,21 @@ const StyledImage = styled("img")({
   borderRadius: "50%",
 });
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const user = usersData.users.find(
       (user) => user.username === username && user.password === password
     );
-
-    if (user) {
-      onLogin(username);
+    
+    if (user?.username && user?.password) {
+      dispatch(handleLoggedIn(user));
     } else {
       setError("Invalid username or password.");
     }
