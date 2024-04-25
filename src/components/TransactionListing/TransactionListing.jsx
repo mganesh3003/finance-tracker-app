@@ -11,6 +11,8 @@ import {
   TablePagination,
   IconButton,
   Box,
+  Button,
+  ButtonGroup,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
@@ -29,6 +31,7 @@ const TransactionTable = () => {
   const [filterCategory, setFilterCategory] = useState("all");
   const [openEditForm, setOpenEditForm] = useState(false);
   const [transactionToEdit, setTransactionToEdit] = useState(null);
+  const [sortOption, setSortOption] = useState("none");
 
   const handleEditClick = (transaction) => {
     setTransactionToEdit(transaction);
@@ -48,7 +51,20 @@ const TransactionTable = () => {
     setPage(0);
   };
 
-  const filteredTransactions = transactions.filter((transaction) => {
+  const handleSort = (option) => {
+    setSortOption(option);
+  };
+
+  const sortedTransactions = () => {
+    if (sortOption === "date") {
+      return transactions.slice().sort((a, b) => a.date.localeCompare(b.date));
+    } else if (sortOption === "amount") {
+      return transactions.slice().sort((a, b) => a.amount - b.amount);
+    }
+    return transactions;
+  };
+
+  const filteredTransactions = sortedTransactions().filter((transaction) => {
     let typeFilter = true;
     let categoryFilter = true;
 
@@ -70,15 +86,54 @@ const TransactionTable = () => {
 
   return (
     <>
+      <Typography variant="h6" gutterBottom>
+        All Transactions
+      </Typography>
       <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
         marginBottom={2}
       >
-        <Typography variant="h6" gutterBottom>
-          All Transactions
-        </Typography>
+        <ButtonGroup
+          variant="outlined"
+          color="primary"
+          aria-label="sort options"
+        >
+          <Button
+            onClick={() => handleSort("none")}
+            variant={sortOption === "none" ? "contained" : "outlined"}
+            style={{
+              fontSize: "12px",
+              padding: "4px 8px",
+              textTransform: "capitalize",
+            }}
+          >
+            No Sort
+          </Button>
+          <Button
+            onClick={() => handleSort("date")}
+            variant={sortOption === "date" ? "contained" : "outlined"}
+            style={{
+              fontSize: "12px",
+              padding: "4px 8px",
+              textTransform: "capitalize",
+            }}
+          >
+            Sort by Date
+          </Button>
+          <Button
+            onClick={() => handleSort("amount")}
+            variant={sortOption === "amount" ? "contained" : "outlined"}
+            style={{
+              fontSize: "12px",
+              padding: "4px 8px",
+              textTransform: "capitalize",
+            }}
+          >
+            Sort by Amount
+          </Button>
+        </ButtonGroup>
         <TypeFilter filterType={filterType} setFilterType={setFilterType} />
         <CategoryFilter
           filterCategory={filterCategory}
