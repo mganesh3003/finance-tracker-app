@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Box, Paper } from "@mui/material";
-import transactions from "../assets/no-transaction.png";
+import transactions from "../../assets/no-transaction.png";
 
 function NoTransactions() {
   return (

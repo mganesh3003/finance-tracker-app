@@ -50,7 +50,7 @@ const AddTransactionForm = ({ open, onClose, transactionToEdit }) => {
     }
 
     if (!isValid) {
-      return; // Do not proceed with submission if there are validation errors
+      return;
     }
 
     const selectedCategory = customCategory || category;
@@ -74,9 +74,9 @@ const AddTransactionForm = ({ open, onClose, transactionToEdit }) => {
     setCategory("");
     setCustomCategory("");
     setAmount("");
-    setDate(new Date().toISOString().slice(0, 10)); // Reset to today's date
-    setErrors({ category: false, amount: false }); // Reset errors after successful submission
-    onClose(); // Close the modal after adding the transaction
+    setDate(new Date().toISOString().slice(0, 10));
+    setErrors({ category: false, amount: false });
+    onClose();
   };
 
   return (
