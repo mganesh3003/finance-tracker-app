@@ -37,11 +37,8 @@ const TransactionTable = () => {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  // const [filterType, setFilterType] = useState("all");
-  // const [filterCategory, setFilterCategory] = useState(reduxFilterCategory);
   const [openEditForm, setOpenEditForm] = useState(false);
   const [transactionToEdit, setTransactionToEdit] = useState(null);
-  // const [sortOption, setSortOption] = useState("none");
 
   const handleEditClick = (transaction) => {
     setTransactionToEdit(transaction);
@@ -52,7 +49,7 @@ const TransactionTable = () => {
     dispatch(deleteTransaction(transactionId));
   };
 
-  const handleChangePage = (newPage) => {
+  const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
